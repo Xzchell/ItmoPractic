@@ -94,6 +94,9 @@ chmod u-w medicham/electivire
 
 echo -e "3 шаг выполнен\n================================================"
 
+#chmod u+r lab0/scolipede/mantyke/medicham
+#ls -lR
+
 # 4 Поиск и фильтрация файлов/каталогов и обработка ошибок прав доступа
 
 echo "Выполнение 4 шага ...."
@@ -146,5 +149,10 @@ rm -rf medicham/electivire
 rm -rf medicham
 
 echo -e "5 шаг выполнен\n================================================"
+
+chmod u=rwx scolipede
+chmod u=rwx scolipede/mantyke/medicham
+cd ..
+rm -rf lab0
 
 echo "Конец выполнения программы"
