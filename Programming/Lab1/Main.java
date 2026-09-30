@@ -1,3 +1,5 @@
+import java.util.StringJoiner;
+
 public class Main {
     final static int ARRAY_F_FROM = 15;
     final static int ARRAY_F_TO = 3;
@@ -101,8 +103,11 @@ public class Main {
 
     private static void printArrayX(float[] x){
         System.out.println("Elements Array X");
-        for(float el : x) System.out.print(el + " ");
-        System.out.println("\n");
+        StringJoiner joiner = new StringJoiner(", ");
+        
+        for(float el : x) joiner.add(String.valueOf(el));
+        
+        System.out.println(joiner.toString());
     }
 
     private static void printMatrixB(double[][] b){
