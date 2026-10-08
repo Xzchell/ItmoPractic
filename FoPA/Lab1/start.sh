@@ -1,4 +1,9 @@
 #Cоздание каталога lab0 и его внутренних каталогов
+
+chmod u=rwx scolipede 2> /dev/null
+chmod u=rwx scolipede/mantyke/medicham 2> /dev/null
+rm -rf lab0 2>/dev/null
+
 mkdir lab0
 cd lab0
 
@@ -111,7 +116,7 @@ chmod u-rw altaria
 # 4.2 Вывод последних 2-х элементов рекурсивного списка каталогов, сортируя по дате доступа по возрастанию
 echo "== 4.2 =="
 
-ls -dFutrl * */* */*/* 2>&1 | grep -v "/$" | tail -2
+ls -dFutrl **/* 2>&1 | grep -v "/$" | tail -2
 
 # 4.3
 echo "== 4.3 =="
@@ -126,14 +131,21 @@ wc -m medicham/cherubi medicham/clefairy scolipede/kakuna scolipede/oshawott sko
 # 4.5
 echo "== 4.5 =="
 
-ls -dFutrl a* */a* | grep -v "/$" | head -2
+#ls -dFutrl **/a* | grep -v "/$" | head -2
+chmod u+r scolipede/mantyke/medicham
+ls -l $(ls -RFutr | grep -v ":$" | grep -v "/$" | grep "^a") | head -2
+chmod u-r scolipede/mantyke/medicham
 
 # 4.6
 echo "== 4.6 =="
 
 chmod u+r altaria
-cat $(ls -dF a* */a* | grep -v "/$") | sort -r | cat -n
+chmod u+r scolipede/mantyke/medicham
+
+cat $(ls -RF | grep -v ":$" | grep -v "/$" | grep "^a") | sort -r | cat -n
+
 chmod u-r altaria
+chmod u-r scolipede/mantyke/medicham   
 
 echo -e "4 шаг выполнен\n================================================"
 
@@ -149,10 +161,4 @@ rm -rf medicham/electivire
 rm -rf medicham
 
 echo -e "5 шаг выполнен\n================================================"
-
-chmod u=rwx scolipede
-chmod u=rwx scolipede/mantyke/medicham
-cd ..
-rm -rf lab0
-
 echo "Конец выполнения программы"
